@@ -1,14 +1,14 @@
 {
   "name": "@3-shake/3design-ui",
   "version": "2.1.3",
-  "main": "dist/commonjs/index.js",
+  "main": "dist/index.cjs.js",
   "homepage": "https://github.com/3-shake/3design-ui",
-  "module": "dist/esm/index.js",
+  "module": "dist/index.es.js",
   "types": "dist/types/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/esm/index.js",
-      "require": "./dist/commonjs/index.js"
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js"
     },
     "./tailwind.config.js": "./tailwind.config.js"
   },
@@ -27,7 +27,7 @@
     "type-check:watch": "yarn type-check -- --watch",
     "build:types": "NODE_ENV=production tsc",
     "build:types:watch": "NODE_ENV=production tsc --watch",
-    "build:js": "cp ./react-table-index.js ./node_modules/react-table/index.js && NODE_ENV=production rollup -c",
+    "build:js": "cp ./react-table-index.js ./node_modules/react-table/index.js && NODE_ENV=production vite build",
     "build:js:watch": "NODE_ENV=production rollup -c --watch",
     "build": "yarn build:types && yarn build:js",
     "eslint": "eslint . --ext .ts,.js,.tsx,.jsx,.cjs -c .eslintrc.js  --ignore-pattern '**/__test*__/*' .",
@@ -74,6 +74,7 @@
     "@types/react-table": "7.7.12",
     "@typescript-eslint/eslint-plugin": "5.28.0",
     "@typescript-eslint/parser": "5.28.0",
+    "@vitejs/plugin-react": "^2.0.0",
     "autoprefixer": "10.4.7",
     "babel-plugin-twin": "1.0.2",
     "bundlewatch": "0.3.3",
@@ -107,6 +108,8 @@
     "rollup-plugin-terser": "7.0.2",
     "tailwindcss": "3.1.3",
     "typescript": "4.7.3",
+    "vite": "^3.0.3",
+    "vite-plugin-babel": "^1.1.0",
     "yup": "0.32.11"
   },
   "peerDependencies": {
